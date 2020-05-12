@@ -1,13 +1,13 @@
 package sample;
 
 public class User {
-    private int id; //Opcionall
+    private int id; //Opcional
     private String dni;
     private String name;
     private String surname;
     private String address;
     private int age;
-    private String gender; //Si es hombre o mujer
+    private String gender; //Male o female
 
     public User(String dni, String name, String surname, String address, int age, String gender) {
         this.dni = dni;
