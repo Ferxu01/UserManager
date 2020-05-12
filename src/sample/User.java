@@ -1,7 +1,7 @@
 package sample;
 
 public class User {
-    private int id; //Opcional
+    private int id; //Opcionall
     private String dni;
     private String name;
     private String surname;
