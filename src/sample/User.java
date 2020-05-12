@@ -1,78 +1,27 @@
 package sample;
 
-abstract public class User {
-    private int id; //Opcional
-    private String dni;
-    private String name;
-    private String surname;
-    private String address;
-    private int age;
-    private String gender; //Male o female
+public class User {
+    protected String username;
+    protected String password;
 
-    public User(String dni, String name, String surname, String address, int age, String gender) {
-        this.dni = dni;
-        this.name = name;
-        this.surname = surname;
-        this.address = address;
-        this.age = age;
-        this.gender = gender;
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    public String getDni() {
-        return dni;
+    public String getUsername() {
+        return username;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public String getPassword() {
+        return password;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    @Override
-    public String toString() {
-        return "Dni: "+dni+"\n"
-                +"Name: "+name+"\n"
-                +"Surname: "+surname+"\n"
-                +"Address: "+address+"\n"
-                +"Age: "+age+"\n"
-                +"Gender: "+gender+"\n";
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
