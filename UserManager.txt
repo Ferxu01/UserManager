@@ -1,0 +1,9 @@
+-Login
+  Administrador:
+	-Crear usuarios
+	-Borrar usuarios
+	-Editar usuarios
+	-Salir 
+  Normal:
+	-Consultar datos
+	-Salir
