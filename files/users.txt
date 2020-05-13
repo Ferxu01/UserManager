@@ -1,1 +1,2 @@
-Fernando;fernando
+Fernando;fernando;Administrator
+Ander;ander;Guest

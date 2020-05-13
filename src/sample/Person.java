@@ -1,6 +1,9 @@
 package sample;
 
 abstract public class Person {
+
+    private String username;
+    private String password;
     private int id; //Opcional
     private String dni;
     private String name;
@@ -9,7 +12,20 @@ abstract public class Person {
     private int age;
     private String gender; //Male o female
 
+    public Person(String username, String password){
+
+        this.username = username;
+        this.password = password;
+        dni = "";
+        name = "";
+        surname = "";
+        address = "";
+        age = 0;
+        gender = "";
+    }
+
     public Person(String dni, String name, String surname, String address, int age, String gender) {
+
         this.dni = dni;
         this.name = name;
         this.surname = surname;
@@ -17,6 +33,14 @@ abstract public class Person {
         this.age = age;
         this.gender = gender;
     }
+
+    public String getType(){ return this.getClass().getName(); }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() { return password; }
 
     public String getDni() {
         return dni;
