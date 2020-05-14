@@ -55,6 +55,7 @@ public class LoginController implements Initializable {
         }
 
         stage.setScene(new Scene(root, 600, 400));
+        Main.primaryStageClose();
         stage.show();
     }
 
