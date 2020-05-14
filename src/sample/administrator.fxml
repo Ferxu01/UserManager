@@ -27,6 +27,7 @@
                       <Button layoutX="245.0" layoutY="325.0" mnemonicParsing="false" text="Edit" />
                       <RadioButton layoutX="91.0" layoutY="270.0" mnemonicParsing="false" text="Male" />
                       <RadioButton layoutX="189.0" layoutY="270.0" mnemonicParsing="false" text="Female" />
+                  <Label fx:id="labelAdmin" layoutX="91.0" layoutY="367.0" text="Provisional" />
                   </children></AnchorPane>
           </items>
       </SplitPane>
