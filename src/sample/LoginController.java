@@ -54,7 +54,7 @@ public class LoginController implements Initializable {
             stage.setTitle("User manager - Guest");
         }
 
-        stage.setScene(new Scene(root, 600, 400));
+        stage.setScene(new Scene(root, 600, 463));
         Main.primaryStageClose();
         stage.show();
     }
