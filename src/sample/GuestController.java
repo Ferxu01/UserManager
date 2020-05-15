@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,5 +45,9 @@ public class GuestController implements Initializable {
                 System.out.println(users.get(i).getUsername());
             }
         }
+    }
+    @FXML
+    private void optionExit() {
+        LoginController.StageClose();
     }
 }

@@ -83,4 +83,9 @@ public class AdministratorController implements Initializable {
         }
         return type;
     }
+    @FXML
+    private void optionReturnLogin(){
+        LoginController.StageClose();
+        Main.primaryStageShow();
+    }
 }

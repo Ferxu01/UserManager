@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
     @FXML
     TextField usernameField, passwordField;
+    private static Stage stage;
 
     final String USERS_FILE_PATH = "files\\users.txt";
 
@@ -42,7 +43,7 @@ public class LoginController implements Initializable {
 
     public void setScene(Person currentUser) throws Exception{
 
-        Stage stage = new Stage();
+        stage = new Stage();
         Parent root = null;
 
         if(currentUser.getType().contains("Administrator")){
@@ -95,5 +96,9 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+    @FXML
+    public static void StageClose(){
+        stage.close();
     }
 }
