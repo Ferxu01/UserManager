@@ -42,6 +42,13 @@ public class GuestController implements Initializable {
     @FXML
     private void readSearch() throws IOException {
         List<Person> users = login.loadUsers();
+
+        //TESTING
+        /*for(Person person:users)
+        {
+            System.out.println(person.getUsername());
+        }*/
+
         String find;
         find = tSearch.getText();
 
@@ -51,7 +58,6 @@ public class GuestController implements Initializable {
             {
                 items=FXCollections.observableArrayList(users.get(i).toString());
                 guestList.setItems(items);
-                //System.out.println(users.get(i));
             }
         }
     }

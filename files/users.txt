@@ -1,2 +1,3 @@
 Fernando;fernando;Administrator
 Ander;ander;Guest
+Juanjo;juanjo;Guest
