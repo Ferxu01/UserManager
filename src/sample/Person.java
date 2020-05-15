@@ -9,23 +9,13 @@ abstract public class Person {
     private String name;
     private String surname;
     private String address;
-    private int age;
+    private String age;
     private String gender; //Male o female
 
-    public Person(String username, String password){
+    public Person(String username, String password,String dni, String name, String surname, String address, String age, String gender) {
 
         this.username = username;
         this.password = password;
-        dni = "";
-        name = "";
-        surname = "";
-        address = "";
-        age = 0;
-        gender = "";
-    }
-
-    public Person(String dni, String name, String surname, String address, int age, String gender) {
-
         this.dni = dni;
         this.name = name;
         this.surname = surname;
@@ -74,11 +64,11 @@ abstract public class Person {
         this.address = address;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

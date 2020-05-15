@@ -1,15 +1,32 @@
 package sample;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AdministratorController implements Initializable {
+
+    public ListView listUsers;
+    public Button btnRemove;
+    public Button btnEdit;
+    public Button btnSave;
+    public TextField usernameField;
+    public TextField passField;
+    LoginController lc;
+    List<Person> userList;
 
     @FXML
     ComboBox dropDownUserType;
@@ -25,38 +42,93 @@ public class AdministratorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        lc = new LoginController();
+
+        try {
+            userList = lc.loadUsers();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         ObservableList userTypesList = FXCollections.observableArrayList();
         userTypesList.addAll("Administrator","Guest");
         dropDownUserType.setItems(userTypesList);
         dropDownUserType.getSelectionModel().select(1);
+        updateList();
+
+        listUsers.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Person>()
+                {
+                    @Override
+                    public void changed(ObservableValue<? extends Person> observable,
+                                        Person oldValue, Person newValue) {
+                        if (newValue != null)
+                        {
+                            passField.setText(newValue.getPassword());
+                            usernameField.setText(newValue.getUsername());
+                            nameField.setText(newValue.getName());
+                            dniField.setText(newValue.getDni());
+                            surnameField.setText(newValue.getSurname());
+                            addressField.setText(newValue.getAddress());
+                            ageField.setText(newValue.getAge());
+                            btnRadioGenderMale.fire();
+                        }
+                    }
+                }
+        );
     }
 
     @FXML
     private void getUserData() {
+        String username = usernameField.getText();
+        String password = passField.getText();
         String dni = dniField.getText();
         String name = nameField.getText();
         String surname = surnameField.getText();
         String address = addressField.getText();
-        int age = Integer.parseInt(ageField.getText());
+        String age = (ageField.getText());
         String gender = selectUserGender();
         int userTypeIndex = dropDownUserType.getSelectionModel().getSelectedIndex();
         String userType = selectUserType(userTypeIndex);
 
-        addUser(dni,name,surname,address,age,gender,userType);
+        addUser(username,password,dni,name,surname,address,age,gender,userType);
     }
 
-    private void addUser(String dni, String name, String surname, String address, int age, String gender, String userType) {
-        Person user;
+    public void updateList(){
+
+        ObservableList users = FXCollections.observableArrayList(userList);
+        listUsers.setItems(users);
+    }
+
+    private void addUser(String username, String password,String dni, String name, String surname, String address, String age, String gender, String userType) {
+
+        Person user = null;
+
         switch (userType)
         {
             case "Administrator":
-                user = new Administrator(dni,name,surname,address,age,gender);
+                user = new Administrator(username,password,dni,name,surname,address,age,gender);
                 break;
 
             case "Guest":
-                user = new Guest(dni,name,surname,address,age,gender);
+                user = new Guest(username,password,dni,name,surname,address,age,gender);
                 break;
         }
+
+        userList.add(user);
+        updateList();
+    }
+
+    public void removeUser(){
+
+        for (int i=0; i<userList.size(); i++) {
+            if(userList.get(i).getDni().equals(dniField.getText())){
+                userList.remove(i);
+            }
+        }
+
+        updateList();
     }
 
     private String selectUserGender() {
@@ -87,5 +159,31 @@ public class AdministratorController implements Initializable {
     private void optionReturnLogin(){
         LoginController.StageClose();
         Main.primaryStageShow();
+    }
+
+    public void saveUsers(){
+
+        PrintWriter printWriter = null;
+
+        try {
+            printWriter = new PrintWriter (LoginController.USERS_FILE_PATH);
+
+            for (Person person:userList) {
+
+                printWriter.println(person.getUsername() + ";"
+                        + person.getPassword() + ";" + person.getType() + ";"
+                        + person.getDni() + ";"+ person.getName() + ";"
+                        + person.getSurname() + ";"+ person.getAddress() + ";"
+                        + person.getAge() + ";"+ person.getGender());
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (printWriter != null) {
+                printWriter.close();
+            }
+        }
     }
 }

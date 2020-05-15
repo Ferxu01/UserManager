@@ -23,19 +23,18 @@ public class LoginController implements Initializable {
     TextField usernameField, passwordField;
     private static Stage stage;
 
-    final String USERS_FILE_PATH = "files\\users.txt";
+    final static String USERS_FILE_PATH = "files\\users.txt";
 
     @FXML
     public void checkLogin() throws Exception {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        for (Person currentUser : loadLoginUsers()) {
+        for (Person currentUser : loadUsers()) {
             if (username.equals(currentUser.getUsername()) && password.equals(currentUser.getPassword())) {
                 setScene(currentUser);
             }
         }
-        loadUsers();
     }
 
     public void setScene(Person currentUser) throws Exception{
@@ -57,7 +56,7 @@ public class LoginController implements Initializable {
         stage.show();
     }
 
-    public List<Person> loadLoginUsers() throws IOException {
+    public List<Person> loadUsers() throws IOException {
 
         BufferedReader usersFile = new BufferedReader(new FileReader(USERS_FILE_PATH));
         List<Person> usersList = new ArrayList();
@@ -73,12 +72,18 @@ public class LoginController implements Initializable {
                 String username = splitUser[0];
                 String password = splitUser[1];
                 String type = splitUser[2];
+                String dni = splitUser[3];
+                String name = splitUser[4];
+                String surname = splitUser[5];
+                String address = splitUser[6];
+                String age = splitUser[7];
+                String gender = splitUser[8];
 
                 if(type.contains("Guest")){
-                    user = new Guest(username, password);
+                    user = new Guest(username, password,dni,name,surname,address,age,gender);
                 }
                 else if(type.contains("Administrator")){
-                    user = new Administrator(username, password);
+                    user = new Administrator(username, password,dni,name,surname,address,age,gender);
                 }
 
                 usersList.add(user);
@@ -90,48 +95,10 @@ public class LoginController implements Initializable {
         return usersList;
     }
 
-    public List<Person> loadUsers() throws IOException {
-        BufferedReader usersFile = new BufferedReader(new FileReader(USERS_FILE_PATH));
-        List<Person> usersData = new ArrayList<>();
-        Person user = null;
-        String line = "";
-        String[] splitUser;
-
-        do {
-            line = usersFile.readLine();
-
-            if (line != null) {
-                splitUser = line.split(";");
-                String type = splitUser[2];
-                String dni = splitUser[3];
-                String name = splitUser[4];
-                String surname = splitUser[5];
-                String address = splitUser[6];
-                int age = Integer.parseInt(splitUser[7]);
-                String gender = splitUser[8];
-
-                if(type.contains("Guest")){
-                    user = new Guest(dni,name,surname,address,age,gender);
-                }
-                else if(type.contains("Administrator")){
-                    user = new Administrator(dni,name,surname,address,age,gender);
-                }
-
-                usersData.add(user);
-            }
-        } while(line != null);
-
-        usersFile.close();
-
-        return usersData;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
     @FXML
-    public static void StageClose(){
-        stage.close();
-    }
+    public static void StageClose(){ stage.close(); }
 }

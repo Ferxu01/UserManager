@@ -30,6 +30,7 @@ public class GuestController implements Initializable {
     @FXML
     private void readSearch() throws IOException {
         List<Person> users = login.loadUsers();
+        items = FXCollections.observableArrayList();
 
         //TESTING
         /*for(Person person:users)
@@ -39,16 +40,19 @@ public class GuestController implements Initializable {
 
         String find = tSearch.getText();
 
-        for(int i=0; i<login.loadUsers().size(); i++)
-        {
-            if(login.loadUsers().get(i).getName().toLowerCase().contains(find.toLowerCase()))
-            {
-                items=FXCollections.observableArrayList(login.loadUsers().get(i).toString());
+        if(find.length() != 0) {
 
+            for (int i = 0; i < login.loadUsers().size(); i++) {
+                if (login.loadUsers().get(i).getName().toLowerCase().contains(find.toLowerCase())) {
+                    items.add(login.loadUsers().get(i).toString());
+                }
             }
 
+            guestList.setItems(items);
         }
-        guestList.setItems(items);
+        else{
+            guestList.setItems(null);
+        }
     }
     @FXML
     private void optionExit() {
