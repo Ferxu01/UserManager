@@ -24,6 +24,7 @@ public class GuestController implements Initializable {
     public Button exitBtn;
     public TextField tSearch;
     public ListView guestList;
+    int fontSize;
     LoginController login;
     ObservableList<String> items;
 
@@ -57,5 +58,12 @@ public class GuestController implements Initializable {
     @FXML
     private void optionExit() {
         LoginController.StageClose();
+    }
+    @FXML
+    private void optionIncrease(){
+    }
+    @FXML
+    private void optionDecrease(){
+
     }
 }

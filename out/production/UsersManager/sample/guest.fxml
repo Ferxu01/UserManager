@@ -20,8 +20,8 @@
                      </font></Label>
                       <TextField fx:id="tSearch" layoutX="36.0" layoutY="131.0" onKeyReleased="#readSearch" prefHeight="26.0" prefWidth="224.0" />
                       <Button fx:id="exitBtn" layoutX="130.0" layoutY="358.0" mnemonicParsing="false" onAction="#optionExit" text="Exit" />
-                      <Button layoutX="70.0" layoutY="173.0" mnemonicParsing="false" text="Increase" />
-                      <Button layoutX="165.0" layoutY="173.0" mnemonicParsing="false" text="Decrease" />
+                      <Button layoutX="70.0" layoutY="173.0" mnemonicParsing="false" onAction="#optionIncrease" text="Increase" />
+                      <Button layoutX="165.0" layoutY="173.0" mnemonicParsing="false" onAction="#optionDecrease" text="Decrease" />
                   <Label fx:id="labelGuest" layoutX="63.0" layoutY="261.0" text="Provisional" />
                   </children></AnchorPane>
           </items>
