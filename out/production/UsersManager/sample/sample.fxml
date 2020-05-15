@@ -16,6 +16,5 @@
       </Label>
       <PasswordField fx:id="passwordField" layoutX="173.0" layoutY="232.0" prefHeight="26.0" prefWidth="254.0" />
       <Button fx:id="btnLogin" layoutX="234.0" layoutY="303.0" mnemonicParsing="false" onAction="#checkLogin" prefHeight="26.0" prefWidth="132.0" text="Login" />
-      <Label fx:id="labelCorrect" layoutX="234.0" layoutY="356.0" prefWidth="141.0" text="Check" />
    </children>
 </AnchorPane>

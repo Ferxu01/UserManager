@@ -94,7 +94,6 @@ abstract public class Person {
     public String toString() {
         return  "====================="+"\n"
                 +"Dni: "+dni+"\n"
-                +"Username: "+username+"\n"
                 +"Name: "+name+"\n"
                 +"Surname: "+surname+"\n"
                 +"Address: "+address+"\n"

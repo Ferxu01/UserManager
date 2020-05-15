@@ -1,24 +1,17 @@
 package sample;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TextField;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.scene.control.TextField;
 
 public class GuestController implements Initializable {
     public Button exitBtn;
@@ -28,14 +21,9 @@ public class GuestController implements Initializable {
     LoginController login;
     ObservableList<String> items;
 
-    @FXML
-    Label labelGuest;
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        labelGuest.setText("Se ha ejecutado el controlador del invitado");
         login = new LoginController();
     }
 
@@ -49,17 +37,18 @@ public class GuestController implements Initializable {
             System.out.println(person.getUsername());
         }*/
 
-        String find;
-        find = tSearch.getText();
+        String find = tSearch.getText();
 
-        for(int i=0; i<users.size(); i++)
+        for(int i=0; i<login.loadUsers().size(); i++)
         {
-            if(find.toLowerCase().contains(users.get(i).getUsername().toLowerCase()))
+            if(login.loadUsers().get(i).getName().toLowerCase().contains(find.toLowerCase()))
             {
-                items=FXCollections.observableArrayList(users.get(i).toString());
-                guestList.setItems(items);
+                items=FXCollections.observableArrayList(login.loadUsers().get(i).toString());
+
             }
+
         }
+        guestList.setItems(items);
     }
     @FXML
     private void optionExit() {
