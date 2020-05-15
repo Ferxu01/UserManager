@@ -92,11 +92,14 @@ abstract public class Person {
 
     @Override
     public String toString() {
-        return "Dni: "+dni+"\n"
+        return  "====================="+"\n"
+                +"Dni: "+dni+"\n"
+                +"Username: "+username+"\n"
                 +"Name: "+name+"\n"
                 +"Surname: "+surname+"\n"
                 +"Address: "+address+"\n"
                 +"Age: "+age+"\n"
-                +"Gender: "+gender+"\n";
+                +"Gender: "+gender+"\n"
+                +"====================";
     }
 }

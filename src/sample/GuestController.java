@@ -1,11 +1,14 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 
@@ -20,10 +23,14 @@ import javafx.scene.control.TextField;
 public class GuestController implements Initializable {
     public Button exitBtn;
     public TextField tSearch;
+    public ListView guestList;
     LoginController login;
+    ObservableList<String> items;
 
     @FXML
     Label labelGuest;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -39,10 +46,11 @@ public class GuestController implements Initializable {
 
         for(int i=0; i<users.size(); i++)
         {
-            if(find.contains(users.get(i).getUsername()))
+            if(find.toLowerCase().contains(users.get(i).getUsername().toLowerCase()))
             {
-                //Falta añadir el resto de elementos Nombre, DNI, Direccion...
-                System.out.println(users.get(i).getUsername());
+                items=FXCollections.observableArrayList(users.get(i).toString());
+                guestList.setItems(items);
+                //System.out.println(users.get(i));
             }
         }
     }
