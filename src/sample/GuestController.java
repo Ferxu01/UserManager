@@ -17,7 +17,6 @@ public class GuestController implements Initializable {
     public Button exitBtn;
     public TextField tSearch;
     public ListView guestList;
-    int fontSize;
     LoginController login;
     ObservableList<String> items;
 
@@ -32,19 +31,13 @@ public class GuestController implements Initializable {
         List<Person> users = login.loadUsers();
         items = FXCollections.observableArrayList();
 
-        //TESTING
-        /*for(Person person:users)
-        {
-            System.out.println(person.getUsername());
-        }*/
-
         String find = tSearch.getText();
 
         if(find.length() != 0) {
 
-            for (int i = 0; i < login.loadUsers().size(); i++) {
-                if (login.loadUsers().get(i).getName().toLowerCase().contains(find.toLowerCase())) {
-                    items.add(login.loadUsers().get(i).toString());
+            for (int i = 0; i < users.size(); i++) {
+                if (users.get(i).getName().toLowerCase().contains(find.toLowerCase())) {
+                    items.add(users.get(i).toString());
                 }
             }
 
@@ -54,15 +47,9 @@ public class GuestController implements Initializable {
             guestList.setItems(null);
         }
     }
+
     @FXML
     private void optionExit() {
         LoginController.StageClose();
-    }
-    @FXML
-    private void optionIncrease(){
-    }
-    @FXML
-    private void optionDecrease(){
-
     }
 }

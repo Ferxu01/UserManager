@@ -164,22 +164,20 @@ public class AdministratorController implements Initializable {
         String ageEdit = ageField.getText();
         String genderEdit = selectUserGender();
 
-        //for (Person person : userList) {
-            if (!userList.get(indexUserEdit).getUsername().equals(usernameEdit) || !userList.get(indexUserEdit).getPassword().equals(passwordEdit)
-                    || !userList.get(indexUserEdit).getDni().equals(dniEdit) || !userList.get(indexUserEdit).getName().equals(nameEdit)
-                    || !userList.get(indexUserEdit).getSurname().equals(surnameEdit) || !userList.get(indexUserEdit).getAddress().equals(addressEdit)
-                    || !userList.get(indexUserEdit).getAge().equals(ageEdit) || !userList.get(indexUserEdit).getGender().equals(genderEdit))
-            {
-                userList.get(indexUserEdit).setUsername(usernameEdit);
-                userList.get(indexUserEdit).setPassword(passwordEdit);
-                userList.get(indexUserEdit).setDni(dniEdit);
-                userList.get(indexUserEdit).setName(nameEdit);
-                userList.get(indexUserEdit).setSurname(surnameEdit);
-                userList.get(indexUserEdit).setAddress(addressEdit);
-                userList.get(indexUserEdit).setAge(ageEdit);
-                userList.get(indexUserEdit).setGender(genderEdit);
-            }
-        //}
+        if (!userList.get(indexUserEdit).getUsername().equals(usernameEdit) || !userList.get(indexUserEdit).getPassword().equals(passwordEdit)
+                || !userList.get(indexUserEdit).getDni().equals(dniEdit) || !userList.get(indexUserEdit).getName().equals(nameEdit)
+                || !userList.get(indexUserEdit).getSurname().equals(surnameEdit) || !userList.get(indexUserEdit).getAddress().equals(addressEdit)
+                || !userList.get(indexUserEdit).getAge().equals(ageEdit) || !userList.get(indexUserEdit).getGender().equals(genderEdit))
+        {
+            userList.get(indexUserEdit).setUsername(usernameEdit);
+            userList.get(indexUserEdit).setPassword(passwordEdit);
+            userList.get(indexUserEdit).setDni(dniEdit);
+            userList.get(indexUserEdit).setName(nameEdit);
+            userList.get(indexUserEdit).setSurname(surnameEdit);
+            userList.get(indexUserEdit).setAddress(addressEdit);
+            userList.get(indexUserEdit).setAge(ageEdit);
+            userList.get(indexUserEdit).setGender(genderEdit);
+        }
         updateList();
 
     }
@@ -208,20 +206,21 @@ public class AdministratorController implements Initializable {
         }
         return type;
     }
+
     @FXML
     private void optionReturnLogin(){
         LoginController.StageClose();
         Main.primaryStageShow();
     }
 
-    public void saveUsers(){
+    public void saveUsers() {
 
         PrintWriter printWriter = null;
 
         try {
             printWriter = new PrintWriter (LoginController.USERS_FILE_PATH);
 
-            for (Person person:userList) {
+            for (Person person : userList) {
 
                 printWriter.println(person.getUsername() + ";"
                         + person.getPassword() + ";" + person.getType() + ";"

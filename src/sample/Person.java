@@ -1,16 +1,15 @@
 package sample;
 
-abstract public class Person {
+public abstract class Person {
 
     private String username;
     private String password;
-    private int id; //Opcional
     private String dni;
     private String name;
     private String surname;
     private String address;
     private String age;
-    private String gender; //Male o female
+    private String gender;
 
     public Person(String username, String password,String dni, String name, String surname, String address, String age, String gender) {
 

@@ -20,7 +20,9 @@ public class Main extends Application {
     }
 
     public static void primaryStageClose(){ primaryStage.close(); }
-    public static void primaryStageShow(){ primaryStage.show();}
+
+    public static void primaryStageShow(){ primaryStage.show(); }
+
     public static void main(String[] args) {
         launch(args);
     }

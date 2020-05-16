@@ -1,2 +1,4 @@
-Fernando;fernando;Administrator;1234346F;ferxu;ortega;calle jimenezz;19;Male
-Fernandoo;fernandoo;Guest;1234346345F;ferxuuu;ortegaaa;calle jimenezzz;25;Male
+Fernando;fernando;Administrator;1234346F;Fernando;Ortega;jimenez street;18;Male
+Juanjo;juanjo;Guest;1111111P;Juanjo;Rocamora;rocamora street;19;Male
+Ander;ander;Administrator;222222V;Ander;Escolano;escolano street;19;Male
+Daniel;daniel;Guest;3333333X;Daniel;Valenzuela;valenzuela street;18;Male
