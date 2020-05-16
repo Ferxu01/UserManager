@@ -25,7 +25,7 @@
                       <TextField fx:id="addressField" layoutX="27.0" layoutY="203.0" prefHeight="26.0" prefWidth="302.0" />
                       <Button fx:id="btnRemove" layoutX="96.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#removeUser" text="Remove" />
                       <Button fx:id="btnAdd" layoutX="90.0" layoutY="414.0" mnemonicParsing="false" onAction="#getUserData" text="Add" translateX="-50.0" />
-                      <Button fx:id="btnEdit" layoutX="169.0" layoutY="414.0" mnemonicParsing="false" text="Edit" />
+                      <Button fx:id="btnEdit" layoutX="169.0" layoutY="414.0" mnemonicParsing="false" onAction="#editUser" text="Edit" />
                   <Button fx:id="btnSave" layoutX="-76.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#saveUsers" text="Save" translateX="300.0" translateY="388.0" />
                       <RadioButton fx:id="btnRadioGenderMale" layoutX="110.0" layoutY="324.0" mnemonicParsing="false" selected="true" text="Male">
                      <toggleGroup>

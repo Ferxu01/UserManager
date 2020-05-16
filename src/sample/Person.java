@@ -24,13 +24,21 @@ abstract public class Person {
         this.gender = gender;
     }
 
-    public String getType(){ return this.getClass().getName(); }
+    public String getType(){ return this.getClass().getName().substring(7); }
 
     public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() { return password; }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getDni() {
         return dni;

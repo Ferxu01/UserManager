@@ -28,6 +28,16 @@ public class AdministratorController implements Initializable {
     LoginController lc;
     List<Person> userList;
 
+    String username;
+    String password;
+    String dni;
+    String name;
+    String surname;
+    String address;
+    String age;
+    String gender;
+    int userTypeIndex;
+
     @FXML
     ComboBox dropDownUserType;
 
@@ -72,12 +82,17 @@ public class AdministratorController implements Initializable {
                             surnameField.setText(newValue.getSurname());
                             addressField.setText(newValue.getAddress());
                             ageField.setText(newValue.getAge());
-                            System.out.println("Se ejecuta");
 
                             if (newValue.getGender().equals("Male")) {
                                 btnRadioGenderMale.fire();
                             } else if (newValue.getGender().equals("Female")) {
                                 btnRadioGenderFemale.fire();
+                            }
+
+                            if (newValue.getType().equals("Administrator")) {
+                                dropDownUserType.getSelectionModel().select(0);
+                            } else if (newValue.getType().equals("Guest")) {
+                                dropDownUserType.getSelectionModel().select(1);
                             }
                         }
                     }
@@ -87,15 +102,15 @@ public class AdministratorController implements Initializable {
 
     @FXML
     private void getUserData() {
-        String username = usernameField.getText();
-        String password = passField.getText();
-        String dni = dniField.getText();
-        String name = nameField.getText();
-        String surname = surnameField.getText();
-        String address = addressField.getText();
-        String age = ageField.getText();
-        String gender = selectUserGender();
-        int userTypeIndex = dropDownUserType.getSelectionModel().getSelectedIndex();
+        username = usernameField.getText();
+        password = passField.getText();
+        dni = dniField.getText();
+        name = nameField.getText();
+        surname = surnameField.getText();
+        address = addressField.getText();
+        age = ageField.getText();
+        gender = selectUserGender();
+        userTypeIndex = dropDownUserType.getSelectionModel().getSelectedIndex();
         String userType = selectUserType(userTypeIndex);
 
         addUser(username,password,dni,name,surname,address,age,gender,userType);
@@ -135,6 +150,38 @@ public class AdministratorController implements Initializable {
         }
 
         updateList();
+    }
+
+    @FXML
+    private void editUser() {
+        int indexUserEdit = listUsers.getSelectionModel().getSelectedIndex();
+        String usernameEdit = usernameField.getText();
+        String passwordEdit = passField.getText();
+        String dniEdit = dniField.getText();
+        String nameEdit = nameField.getText();
+        String surnameEdit = surnameField.getText();
+        String addressEdit = addressField.getText();
+        String ageEdit = ageField.getText();
+        String genderEdit = selectUserGender();
+
+        //for (Person person : userList) {
+            if (!userList.get(indexUserEdit).getUsername().equals(usernameEdit) || !userList.get(indexUserEdit).getPassword().equals(passwordEdit)
+                    || !userList.get(indexUserEdit).getDni().equals(dniEdit) || !userList.get(indexUserEdit).getName().equals(nameEdit)
+                    || !userList.get(indexUserEdit).getSurname().equals(surnameEdit) || !userList.get(indexUserEdit).getAddress().equals(addressEdit)
+                    || !userList.get(indexUserEdit).getAge().equals(ageEdit) || !userList.get(indexUserEdit).getGender().equals(genderEdit))
+            {
+                userList.get(indexUserEdit).setUsername(usernameEdit);
+                userList.get(indexUserEdit).setPassword(passwordEdit);
+                userList.get(indexUserEdit).setDni(dniEdit);
+                userList.get(indexUserEdit).setName(nameEdit);
+                userList.get(indexUserEdit).setSurname(surnameEdit);
+                userList.get(indexUserEdit).setAddress(addressEdit);
+                userList.get(indexUserEdit).setAge(ageEdit);
+                userList.get(indexUserEdit).setGender(genderEdit);
+            }
+        //}
+        updateList();
+
     }
 
     private String selectUserGender() {
