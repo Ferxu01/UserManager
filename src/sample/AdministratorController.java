@@ -72,7 +72,13 @@ public class AdministratorController implements Initializable {
                             surnameField.setText(newValue.getSurname());
                             addressField.setText(newValue.getAddress());
                             ageField.setText(newValue.getAge());
-                            btnRadioGenderMale.fire();
+                            System.out.println("Se ejecuta");
+
+                            if (newValue.getGender().equals("Male")) {
+                                btnRadioGenderMale.fire();
+                            } else if (newValue.getGender().equals("Female")) {
+                                btnRadioGenderFemale.fire();
+                            }
                         }
                     }
                 }
@@ -87,7 +93,7 @@ public class AdministratorController implements Initializable {
         String name = nameField.getText();
         String surname = surnameField.getText();
         String address = addressField.getText();
-        String age = (ageField.getText());
+        String age = ageField.getText();
         String gender = selectUserGender();
         int userTypeIndex = dropDownUserType.getSelectionModel().getSelectedIndex();
         String userType = selectUserType(userTypeIndex);
