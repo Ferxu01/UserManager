@@ -15,18 +15,18 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="295.0">
                   <children>
                       <Label layoutX="30.0" layoutY="75.0" prefHeight="18.0" prefWidth="34.0" text="DNI" />
-                      <Label layoutX="30.0" layoutY="132.0" prefHeight="18.0" prefWidth="34.0" text="Name" />
+                      <Label layoutX="30.0" layoutY="132.0" prefHeight="18.0" prefWidth="60.0" text="Name" />
                       <Label layoutX="192.0" layoutY="132.0" text="Surname" />
                       <Label layoutX="28.0" layoutY="185.0" text="Address" />
                       <Label layoutX="32.0" layoutY="298.0" text="Gender" />
-                      <TextField fx:id="dniField" layoutX="30.0" layoutY="93.0" prefHeight="26.0" prefWidth="301.0" />
+                      <TextField fx:id="dniField" layoutX="30.0" layoutY="93.0" prefHeight="26.0" prefWidth="315.0" />
                       <TextField fx:id="nameField" layoutX="29.0" layoutY="150.0" prefHeight="26.0" prefWidth="150.0" />
                       <TextField fx:id="surnameField" layoutX="192.0" layoutY="150.0" prefHeight="26.0" prefWidth="150.0" />
-                      <TextField fx:id="addressField" layoutX="27.0" layoutY="203.0" prefHeight="26.0" prefWidth="302.0" />
-                      <Button fx:id="btnRemove" layoutX="96.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#removeUser" text="Remove" />
+                      <TextField fx:id="addressField" layoutX="27.0" layoutY="203.0" prefHeight="26.0" prefWidth="315.0" />
+                      <Button fx:id="btnRemove" layoutX="104.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#removeUser" text="Remove" />
                       <Button fx:id="btnAdd" layoutX="90.0" layoutY="414.0" mnemonicParsing="false" onAction="#getUserData" text="Add" translateX="-50.0" />
-                      <Button fx:id="btnEdit" layoutX="169.0" layoutY="414.0" mnemonicParsing="false" onAction="#editUser" text="Edit" />
-                  <Button fx:id="btnSave" layoutX="-76.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#saveUsers" text="Save" translateX="300.0" translateY="388.0" />
+                      <Button fx:id="btnEdit" layoutX="185.0" layoutY="414.0" mnemonicParsing="false" onAction="#editUser" text="Edit" />
+                  <Button fx:id="btnSave" layoutX="-53.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#saveUsers" text="Save" translateX="300.0" translateY="388.0" />
                       <RadioButton fx:id="btnRadioGenderMale" layoutX="110.0" layoutY="324.0" mnemonicParsing="false" selected="true" text="Male">
                      <toggleGroup>
                         <ToggleGroup fx:id="btnRadioGender" />
@@ -35,13 +35,13 @@
                   <ComboBox fx:id="dropDownUserType" layoutX="35.0" layoutY="360.0" prefWidth="150.0" />
                   <Label layoutX="34.0" layoutY="342.0" text="Type" />
                   <Label layoutX="29.0" layoutY="241.0" text="Age" />
-                  <TextField fx:id="ageField" layoutX="29.0" layoutY="258.0" prefHeight="25.0" prefWidth="301.0" />
-                  <Button layoutX="287.0" layoutY="411.0" mnemonicParsing="false" onAction="#optionReturnLogin" text="←">
+                  <TextField fx:id="ageField" layoutX="29.0" layoutY="258.0" prefHeight="26.0" prefWidth="315.0" />
+                  <Button layoutX="308.0" layoutY="411.0" mnemonicParsing="false" onAction="#optionReturnLogin" text="←">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Label layoutX="30.0" layoutY="14.0" prefHeight="18.0" prefWidth="60.0" text="Username" />
+                  <Label layoutX="30.0" layoutY="14.0" prefHeight="18.0" prefWidth="73.0" text="Username" />
                   <Label layoutX="192.0" layoutY="14.0" text="Password" />
                   <TextField fx:id="usernameField" layoutX="29.0" layoutY="32.0" prefHeight="26.0" prefWidth="150.0" />
                   <TextField fx:id="passField" layoutX="192.0" layoutY="32.0" prefHeight="26.0" prefWidth="150.0" />
